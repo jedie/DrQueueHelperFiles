@@ -1,0 +1,16 @@
+# Put these file in ~/DrQueue_env/
+# This file must be used with "source set_settings" *from bash*
+# you cannot run it directly!
+
+export DRQUEUE_POOL="DrQueue pool 1"
+export DRQUEUE_MASTER=0.0.0.0
+#~ export DRQUEUE_SSH_USER=drqueue
+export DRQUEUE_ROOT=$(pwd)/drqueue_root
+export IPYTHON_DIR=${DRQUEUE_ROOT}/ipython
+
+echo ""
+echo "DRQUEUE_POOL=${DRQUEUE_POOL}"
+echo "DRQUEUE_MASTER=${DRQUEUE_MASTER}"
+echo "DRQUEUE_ROOT=${DRQUEUE_ROOT}"
+echo "IPYTHON_DIR=${IPYTHON_DIR}"
+echo ""
