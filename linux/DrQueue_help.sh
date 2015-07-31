@@ -1,6 +1,17 @@
 #!/bin/bash
+
 # Put these file in ~/DrQueue_env/
 source bin/activate
-set -x
-drqueue --help >drqueue_help.txt
-gnome-open drqueue_help.txt
+
+echo ""
+(
+    set -x
+
+    drqueue --help >drqueue_help.txt
+
+    { echo "---------------------------------------------------"; } 2>/dev/null
+
+    gnome-open drqueue_help.txt
+)
+echo ""
+read -p "Press [ENTER]..."
