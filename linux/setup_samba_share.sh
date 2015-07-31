@@ -9,19 +9,21 @@ source "${SETTINGS_FILE}"
 echo ""
 (
     set -x
-    # delete old entry
-    sudo net usershare delete DrQueue 2>/dev/null
 
-    # create share with full access to everyone:
-    sudo net usershare add DrQueue ${DRQUEUE_ROOT} "DrQueue root dir" Everyone:f guest_ok=y
+    net usershare info -l
 
     { echo "---------------------------------------------------"; } 2>/dev/null
 
-    sudo net usershare info
+    # If the same share was created via sudo or from a other user:
+    #sudo net usershare delete DrQueue
+
+    # create share with full access to current user:
+    net usershare add DrQueue ${DRQUEUE_ROOT} "DrQueue root dir" ${USER}:F
 
     { echo "---------------------------------------------------"; } 2>/dev/null
 
-    sudo service smbd restart
+    net usershare info -l
+
 )
 echo ""
 read -p "Press [ENTER]..."
