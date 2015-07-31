@@ -1,13 +1,16 @@
-# DrQueueHelperFiles
+= DrQueue startup helper files
 
-Just a few helper bash/batch scripts for [[https://github.com/kaazoo/DrQueueIPython|DrQueueIPython]].
+Just a few bash/batch scripts for [[https://github.com/kaazoo/DrQueueIPython|DrQueueIPython]].
 
 Download as zip:
 
 * https://github.com/jedie/DrQueueHelperFiles/archive/master.zip
 
+
 On Linux: Put all {{{/linux/*.sh}}} files to {{{~/DrQueue_env/}}}
+
 On Windows: Put all {{{/windows/*.cmd}}} files to {{{%APPDATA%\DrQueue_env\}}}
+
 
 More information:
  * https://github.com/jedie/DrQueueIPython/wiki
