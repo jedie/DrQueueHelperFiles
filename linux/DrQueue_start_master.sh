@@ -24,7 +24,19 @@ done
 echo ""
 (
     set -x
+    { echo "---------------------------------------------------"; } 2>/dev/null
+
     drqueue -v --no-ssh master
+
+    { echo "---------------------------------------------------"; } 2>/dev/null
+
+    sleep 1
+
+    # Default is 700
+    chmod 755 ${DRQUEUE_ROOT}/ipython/profile_default/security
+
+    # Default is 600
+    chmod 744 ${DRQUEUE_ROOT}/ipython/profile_default/security/*.json
 )
 echo ""
 cd ${LOG_DIR}
