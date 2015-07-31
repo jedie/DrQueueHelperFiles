@@ -7,6 +7,20 @@ echo "Read settings from: ${SETTINGS_FILE}"
 source "${SETTINGS_FILE}"
 
 echo ""
+if [! "$EUID" -ne 0 ]; then
+    echo "ERROR: Don't run this script with root/sudo!"
+    read -p "Press [ENTER]..."
+    exit -1
+fi
+
+if [ '$(groups | grep "sambashare")' == '' ]; then
+    (
+        set -x
+        sudo usermod -aG sambashare ${USER}
+        sudo smbpasswd -a ${USER}
+    )
+fi
+echo ""
 (
     set -x
 
@@ -25,5 +39,11 @@ echo ""
     net usershare info -l
 
 )
+echo ""
+echo "Note:"
+echo "Samba restart is *not* needed."
+echo ""
+echo "Mount the share under windows with, e.g:"
+echo "C:\> net use Q: \\\\${SELF_IP}\DrQueue /PERSISTENT:YES"
 echo ""
 read -p "Press [ENTER]..."

@@ -36,15 +36,14 @@ done
 
 echo ""
 
-# Get own ip address:
-ETH=$(dmesg | grep -Eo 'eth[[:digit:]]+' | tail -n1)
-IP=$(ifconfig ${ETH} | head -n2 | tail -n1 | cut -d: -f2 | cut -d" " -f1)
+
 
 (
     set -x
     { echo "---------------------------------------------------"; } 2>/dev/null
 
-    export DRQUEUE_MASTER=${IP}
+    # ${SELF_IP} set by settings
+    export DRQUEUE_MASTER=${SELF_IP}
 
     drqueue -v --no-ssh master
 

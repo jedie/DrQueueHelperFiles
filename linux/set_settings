@@ -3,14 +3,15 @@
 # you cannot run it directly!
 
 export DRQUEUE_POOL="DrQueue pool 1"
-export DRQUEUE_MASTER=0.0.0.0
-#~ export DRQUEUE_SSH_USER=drqueue
+# export DRQUEUE_SSH_USER=drqueue
 export DRQUEUE_ROOT=$(pwd)/drqueue_root
-export IPYTHON_DIR=${DRQUEUE_ROOT}/ipython
+
+# Get own ip address:
+_ETH=$(dmesg | grep -Eo 'eth[[:digit:]]+' | tail -n1)
+export SELF_IP=$(ifconfig ${_ETH} | head -n2 | tail -n1 | cut -d: -f2 | cut -d" " -f1)
 
 echo ""
 echo "DRQUEUE_POOL=${DRQUEUE_POOL}"
-echo "DRQUEUE_MASTER=${DRQUEUE_MASTER}"
 echo "DRQUEUE_ROOT=${DRQUEUE_ROOT}"
-echo "IPYTHON_DIR=${IPYTHON_DIR}"
+echo "SELF_IP=${SELF_IP}"
 echo ""
