@@ -8,5 +8,5 @@ call Scripts\activate.bat
 call base_settings.cmd
 
 echo on
-python.exe Scripts\drqueue --verbose --no-ssh slave
+python.exe Scripts\drqueue slave --verbose --no-ssh
 @pause

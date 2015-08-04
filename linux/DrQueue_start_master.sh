@@ -45,7 +45,7 @@ echo ""
     # ${SELF_IP} set by settings
     export DRQUEUE_MASTER=${SELF_IP}
 
-    drqueue -v --no-ssh master
+    drqueue master -v --no-ssh
 
     { echo "---------------------------------------------------"; } 2>/dev/null
 
