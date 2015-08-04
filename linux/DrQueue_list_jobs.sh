@@ -6,13 +6,6 @@ SETTINGS_FILE=~/DrQueue_env/set_settings
 echo "Read settings from: ${SETTINGS_FILE}"
 source "${SETTINGS_FILE}"
 echo ""
-
-(
-    set -x
-    # ${SELF_IP} set by settings
-    export DRQUEUE_MASTER=${SELF_IP}
-)
-
 while :
 do
     echo "---------------------------------------------------"

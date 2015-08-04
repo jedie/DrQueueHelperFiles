@@ -34,17 +34,9 @@ for pidfile in *.pid; do
     )
 done
 
-echo ""
-
-
-
+echo "---------------------------------------------------"
 (
     set -x
-    { echo "---------------------------------------------------"; } 2>/dev/null
-
-    # ${SELF_IP} set by settings
-    export DRQUEUE_MASTER=${SELF_IP}
-
     drqueue master -v --no-ssh
 
     { echo "---------------------------------------------------"; } 2>/dev/null

@@ -2,16 +2,19 @@
 # This file must be used with "source set_settings" *from bash*
 # you cannot run it directly!
 
-export DRQUEUE_POOL="DrQueue pool 1"
-# export DRQUEUE_SSH_USER=drqueue
-export DRQUEUE_ROOT=$(pwd)/drqueue_root
-
 # Get own ip address:
 _ETH=$(dmesg | grep -Eo 'eth[[:digit:]]+' | tail -n1)
 export SELF_IP=$(ifconfig ${_ETH} | head -n2 | tail -n1 | cut -d: -f2 | cut -d" " -f1)
 
+export DRQUEUE_POOL="DrQueue pool 1"
+# export DRQUEUE_SSH_USER=drqueue
+export DRQUEUE_ROOT=$(pwd)/drqueue_root
+export DRQUEUE_MASTER=${SELF_IP}
+export DRQUEUE_MONGODB=${SELF_IP}
+
 echo ""
 echo "DRQUEUE_POOL=${DRQUEUE_POOL}"
 echo "DRQUEUE_ROOT=${DRQUEUE_ROOT}"
-echo "SELF_IP=${SELF_IP}"
+echo "DRQUEUE_MASTER=${SELF_IP}"
+echo "DRQUEUE_MONGODB=${SELF_IP}"
 echo ""
